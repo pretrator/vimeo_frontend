@@ -1,5 +1,8 @@
 import axios from "axios";
 const getdat=()=>{
-    return axios.get("http://starlord.hackerearth.com/bankAccount")
+    console.log("Called Successfully")
+    return axios.get("http://starlord.hackerearth.com/bankAccount").then((r)=>{
+        return r.data
+    })
 }
 export default getdat
