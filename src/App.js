@@ -39,7 +39,7 @@ function App() {
   <h4> Click on headings to sort</h4>
   <h4>For eg <strong>Date</strong> and others to sort with respect to Date column</h4>
   <Table2 data={dat.slice(select*itemsperpage,select*itemsperpage+itemsperpage)} sorter={sorter}/>
-  {error}
+  <h1>{error}</h1>
   <ReactPaginate
           previousLabel={'Previous'}
           nextLabel={'Next'}
