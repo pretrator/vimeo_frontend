@@ -15,7 +15,7 @@ function App() {
       getdat().then((r)=>{
         setdat(r)
       }).catch(()=>{
-        seterr("This page may not work when opened on https:// please open the same with http://")
+        seterr("<h1>This page may not work when opened on https:// please open the same with http://</h1>")
       })
     }
   ,[])
