@@ -8,12 +8,14 @@ import ReactPaginate from 'react-paginate';
 function App() {
   const [dat,setdat]=useState([]);
   const [select,setselect]=useState([]);
+  const [error,seterr]=useState(null);
   const itemsperpage=10
   useEffect(
     ()=>{
       getdat().then((r)=>{
         setdat(r)
-        console.log(r)
+      }).catch(()=>{
+        seterr("This page may not work when opened on https:// please open the same with http://")
       })
     }
   ,[])
@@ -30,13 +32,14 @@ function App() {
   //   let z=d*10
   //   setshowdat(dat.slice(z,z+10))
   // }
-
+ 
   return (<>
   {console.log("Rendering")}
   <h1> Vimeo FullStack Challenge</h1>
   <h4> Click on headings to sort</h4>
   <h4>For eg <strong>Date</strong> and others to sort with respect to Date column</h4>
   <Table2 data={dat.slice(select*itemsperpage,select*itemsperpage+itemsperpage)} sorter={sorter}/>
+  {error}
   <ReactPaginate
           previousLabel={'Previous'}
           nextLabel={'Next'}
